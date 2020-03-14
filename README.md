@@ -16,7 +16,8 @@ We focus on:
 1. time efficiency (on our 1080Ti, 8.9ms for DetNet, 0.9ms for IKNet)
 1. robustness to occlusion, hand-object interaction, fast motion, changing scale and view point
 
-Also check demo video [here](https://youtu.be/OIRulRoBdL4).
+Some links:
+[\[paper\]](https://calciferzh.github.io/files/zhou2020mocular.pdf) [\[video\]](https://youtu.be/OIRulRoBdL4) [\[supp doc\]](https://calciferzh.github.io/files/zhou2020mocular_supp.pdf) [\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
 
 ## Usage
 

@@ -54,3 +54,13 @@ If you find the project helpful, please consider citing us:
 
 ## IKNet Alternative
 We also provide an optimization-based IK solver [here](https://github.com/CalciferZh/Minimal-IK).
+
+## Dataset
+The detection model is trained with following datasets:
+* [CMU HandDB](http://domedb.perception.cs.cmu.edu/handdb.html)
+* [Rendered Handpose Dataset](https://lmb.informatik.uni-freiburg.de/resources/datasets/RenderedHandposeDataset.en.html)
+* [GANerated Hands Dataset](https://handtracker.mpi-inf.mpg.de/projects/GANeratedHands/GANeratedDataset.htm)
+
+The IK model is trained with the poses shipped with [MANO](https://mano.is.tue.mpg.de/).
+
+Please check our paper about the datasets and training for more details.

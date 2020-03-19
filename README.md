@@ -16,6 +16,9 @@ We focus on:
 1. time efficiency (on our 1080Ti, 8.9ms for DetNet, 0.9ms for IKNet)
 1. robustness to occlusion, hand-object interaction, fast motion, changing scale and view point
 
+Some links:
+[\[paper\]](https://calciferzh.github.io/files/zhou2020mocular.pdf) [\[video\]](https://youtu.be/OIRulRoBdL4) [\[supp doc\]](https://calciferzh.github.io/files/zhou2020mocular_supp.pdf) [\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
+
 ## Usage
 
 ### Install dependencies
@@ -43,7 +46,7 @@ Please check `wrappers.py`.
 
 If you find the project helpful, please consider citing us:
 ```
-@inproceedings{zhou2019monocular,
+@inproceedings{zhou2020monocular,
   title={Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data},
   author={Zhou, Yuxiao and Habermann, Marc and Xu, Weipeng and Habibie, Ikhsanul and Theobalt, Christian and Xu, Feng},
   booktitle={Proceedings of the IEEE International Conference on Computer Vision},

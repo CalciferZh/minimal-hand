@@ -23,7 +23,9 @@ class ModelDet:
     self.graph = tf.Graph()
     with self.graph.as_default():
       with tf.variable_scope('prior_based_hand'):
-        self.sess = tf.Session()
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
+        self.sess = tf.Session(config=config)
         self.input_ph = tf.placeholder(tf.uint8, [128, 128, 3])
         self.feed_img = \
           tf.cast(tf.expand_dims(self.input_ph, 0), tf.float32) / 255
@@ -93,7 +95,9 @@ class ModelIK:
       with tf.name_scope('network'):
         self.theta = \
           network_fn(self.input_ph, net_depth, net_width, training=False)[0]
-      self.sess = tf.Session()
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
+        self.sess = tf.Session(config=config)
       tf.train.Saver().restore(self.sess, model_path)
 
   def process(self, joints):

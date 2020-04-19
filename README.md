@@ -7,6 +7,8 @@ Easy to use, plug to run.
 
 This is the official implementation of the paper "Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data" (CVPR 2020).
 
+The quantitative numbers reported in the paper can be found in `plot.py`.
+
 This project provides the core components for hand motion capture:
 1. estimating joint **locations** from a monocular RGB image (DetNet)
 1. estimating joint **rotations** from locations (IKNet)

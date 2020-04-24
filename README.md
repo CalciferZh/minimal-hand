@@ -21,6 +21,8 @@ We focus on:
 Some links:
 [\[paper\]](https://calciferzh.github.io/files/zhou2020mocular.pdf) [\[video\]](https://youtu.be/OIRulRoBdL4) [\[supp doc\]](https://calciferzh.github.io/files/zhou2020mocular_supp.pdf) [\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
 
+The release of training code is still in progress.
+
 ## Usage
 
 ### Install dependencies
@@ -40,6 +42,7 @@ Please check `requirements.txt`. All dependencies are available via pip and cond
 1. `python app.py`
 1. Put your **right hand** in front of the camera. The pre-trained model is for left hand, but the input would be flipped internally.
 1. Press `ESC` to quit.
+1. Although the model is robust to variant scales, most ideally the image should be 1.3x larger than the hand boudning box. A good bounding box may result in better accuracy. You can track the bounding box with the 2D predictions of the model.
 
 ### Use the models in your project
 Please check `wrappers.py`.

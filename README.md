@@ -19,7 +19,7 @@ We focus on:
 1. robustness to occlusion, hand-object interaction, fast motion, changing scale and view point
 
 Some links:
-[\[paper\]](https://calciferzh.github.io/files/zhou2020mocular.pdf) [\[video\]](https://youtu.be/OIRulRoBdL4) [\[supp doc\]](https://calciferzh.github.io/files/zhou2020mocular_supp.pdf) [\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
+[\[paper\]](https://calciferzh.github.io/files/zhou2020monocular.pdf) [\[video\]](https://youtu.be/OIRulRoBdL4) [\[supp doc\]](https://calciferzh.github.io/files/zhou2020monocular_supp.pdf) [\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
 
 The release of training code is still in progress.
 

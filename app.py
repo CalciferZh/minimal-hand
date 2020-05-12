@@ -97,7 +97,6 @@ def live_application(capture):
     mesh.paint_uniform_color(config.HAND_COLOR)
     mesh.compute_triangle_normals()
     mesh.compute_vertex_normals()
-    # for some version of open3d you may need `viewer.update_geometry(mesh)`
     viewer.update_geometry(mesh)
 
     viewer.poll_events()

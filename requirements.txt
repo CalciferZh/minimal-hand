@@ -8,4 +8,3 @@ numpy==1.18.4
 gast==0.2.2
 scipy
 chumpy
-matplotlib

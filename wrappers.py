@@ -22,11 +22,11 @@ class ModelDet:
     """
     self.graph = tf.Graph()
     with self.graph.as_default():
-      with tf.variable_scope('prior_based_hand'):
-        config = tf.ConfigProto()
+      with tf.compat.v1.variable_scope('prior_based_hand'):
+        config = tf.compat.v1.ConfigProto()
         config.gpu_options.allow_growth = True
-        self.sess = tf.Session(config=config)
-        self.input_ph = tf.placeholder(tf.uint8, [128, 128, 3])
+        self.sess = tf.compat.v1.Session(config=config)
+        self.input_ph = tf.compat.v1.placeholder(tf.uint8, [128, 128, 3])
         self.feed_img = \
           tf.cast(tf.expand_dims(self.input_ph, 0), tf.float32) / 255
         self.hmaps, self.dmaps, self.lmaps = \
@@ -45,7 +45,7 @@ class ModelDet:
         )[0]
 
         self.uv = self.uv[0]
-      tf.train.Saver().restore(self.sess, model_path)
+      tf.compat.v1.train.Saver().restore(self.sess, model_path)
 
   def process(self, img):
     """
@@ -91,14 +91,14 @@ class ModelIK:
     """
     self.graph = tf.Graph()
     with self.graph.as_default():
-      self.input_ph = tf.placeholder(tf.float32, [1, input_size, 3])
+      self.input_ph = tf.compat.v1.placeholder(tf.float32, [1, input_size, 3])
       with tf.name_scope('network'):
         self.theta = \
           network_fn(self.input_ph, net_depth, net_width, training=False)[0]
-        config = tf.ConfigProto()
+        config = tf.compat.v1.ConfigProto()
         config.gpu_options.allow_growth = True
-        self.sess = tf.Session(config=config)
-      tf.train.Saver().restore(self.sess, model_path)
+        self.sess = tf.compat.v1.Session(config=config)
+      tf.compat.v1.train.Saver().restore(self.sess, model_path)
 
   def process(self, joints):
     """

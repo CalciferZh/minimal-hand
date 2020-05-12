@@ -11,26 +11,26 @@ def zero_padding(inputs, pad_1, pad_2):
 
 
 def conv_bn(inputs, oc, ks, st, scope, training, rate=1):
-  with tf.variable_scope(scope):
+  with tf.compat.v1.variable_scope(scope):
     if st == 1:
-      layer = tf.layers.conv2d(
+      layer = tf.compat.v1.layers.conv2d(
         inputs, oc, ks, strides=st, padding='SAME', use_bias=False,
         dilation_rate=rate,
-        kernel_regularizer=tf.contrib.layers.l2_regularizer(1.0),
-        kernel_initializer=tf.contrib.layers.xavier_initializer()
+        kernel_regularizer=tf.keras.regularizers.l2(1.0),
+        kernel_initializer=tf.initializers.GlorotUniform()
       )
     else:
       pad_total = ks - 1
       pad_1 = pad_total // 2
       pad_2 = pad_total - pad_1
       padded_inputs = zero_padding(inputs, pad_1, pad_2)
-      layer = tf.layers.conv2d(
+      layer = tf.compat.v1.layers.conv2d(
         padded_inputs, oc, ks, strides=st, padding='VALID', use_bias=False,
         dilation_rate=rate,
-        kernel_regularizer=tf.contrib.layers.l2_regularizer(1.0),
-        kernel_initializer=tf.contrib.layers.xavier_initializer()
+        kernel_regularizer=tf.keras.regularizers.l2(1.0),
+        kernel_initializer=tf.initializers.GlorotUniform()
       )
-    layer = tf.layers.batch_normalization(layer, training=training)
+    layer = tf.compat.v1.layers.batch_normalization(layer, training=training)
   return layer
 
 
@@ -41,7 +41,7 @@ def conv_bn_relu(inputs, oc, ks, st, scope, training, rate=1):
 
 
 def bottleneck(inputs, oc, st, scope, training, rate=1):
-  with tf.variable_scope(scope):
+  with tf.compat.v1.variable_scope(scope):
     ic = inputs.get_shape().as_list()[-1]
     if ic == oc:
       if st == 1:
@@ -61,19 +61,19 @@ def bottleneck(inputs, oc, st, scope, training, rate=1):
 
 
 def resnet50(inputs, scope, training):
-  with tf.variable_scope(scope):
+  with tf.compat.v1.variable_scope(scope):
     layer = conv_bn_relu(inputs, 64, 7, 2, 'conv1', training)
 
-    with tf.variable_scope('block1'):
+    with tf.compat.v1.variable_scope('block1'):
       for unit in range(2):
         layer = bottleneck(layer, 256, 1, 'unit%d' % (unit+1), training)
       layer = bottleneck(layer, 256, 2, 'unit3', training)
 
-    with tf.variable_scope('block2'):
+    with tf.compat.v1.variable_scope('block2'):
       for unit in range(4):
         layer = bottleneck(layer, 512, 1, 'unit%d' % (unit+1), training, 2)
 
-    with tf.variable_scope('block3'):
+    with tf.compat.v1.variable_scope('block3'):
       for unit in range(6):
         layer = bottleneck(layer, 1024, 1, 'unit%d' % (unit+1), training, 4)
 
@@ -83,25 +83,25 @@ def resnet50(inputs, scope, training):
 
 
 def net_2d(features, training, scope, n_out):
-  with tf.variable_scope(scope):
+  with tf.compat.v1.variable_scope(scope):
     layer = conv_bn_relu(features, 256, 3, 1, 'project', training)
-    with tf.variable_scope('prediction'):
-      hmap = tf.layers.conv2d(
+    with tf.compat.v1.variable_scope('prediction'):
+      hmap = tf.compat.v1.layers.conv2d(
         layer, n_out, 1, strides=1, padding='SAME',
         activation=tf.nn.sigmoid,
-        kernel_initializer=tf.initializers.truncated_normal(stddev=0.01)
+        kernel_initializer=tf.compat.v1.initializers.truncated_normal(stddev=0.01)
       )
   return hmap
 
 
 def net_3d(features, training, scope, n_out, need_norm):
-  with tf.variable_scope(scope):
+  with tf.compat.v1.variable_scope(scope):
     layer = conv_bn_relu(features, 256, 3, 1, 'project', training)
-    with tf.variable_scope('prediction'):
-      dmap_raw = tf.layers.conv2d(
+    with tf.compat.v1.variable_scope('prediction'):
+      dmap_raw = tf.compat.v1.layers.conv2d(
         layer, n_out * 3, 1, strides=1, padding='SAME',
         activation=None,
-        kernel_initializer=tf.initializers.truncated_normal(stddev=0.01)
+        kernel_initializer=tf.compat.v1.initializers.truncated_normal(stddev=0.01)
       )
       if need_norm:
         dmap_norm = tf.norm(dmap_raw, axis=-1, keepdims=True)
@@ -172,17 +172,17 @@ def detnet(img, n_stack, training):
 
 
 def dense(layer, n_units):
-  layer = tf.layers.dense(
+  layer = tf.compat.v1.layers.dense(
     layer, n_units, activation=None,
-    kernel_regularizer=tf.contrib.layers.l2_regularizer(1.0),
-    kernel_initializer=tf.initializers.truncated_normal(stddev=0.01)
+    kernel_regularizer=tf.keras.regularizers.l2(1.0),
+    kernel_initializer=tf.compat.v1.initializers.truncated_normal(stddev=0.01)
   )
   return layer
 
 
 def dense_bn(layer, n_units, training):
   layer = dense(layer, n_units)
-  layer = tf.layers.batch_normalization(layer, training=training)
+  layer = tf.compat.v1.layers.batch_normalization(layer, training=training)
   return layer
 
 

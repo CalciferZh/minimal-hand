@@ -5,10 +5,6 @@ Easy to use, plug to run.
 
 ![teaser](teaser.gif)
 
-This is the official implementation of the paper "Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data" (CVPR 2020).
-
-The quantitative numbers reported in the paper can be found in `plot.py`.
-
 This project provides the core components for hand motion capture:
 1. estimating joint **locations** from a monocular RGB image (DetNet)
 1. estimating joint **rotations** from locations (IKNet)
@@ -19,7 +15,10 @@ We focus on:
 1. robustness to occlusion, hand-object interaction, fast motion, changing scale and view point
 
 Some links:
-[\[paper\]](https://calciferzh.github.io/files/zhou2020monocular.pdf) [\[video\]](https://youtu.be/OIRulRoBdL4) [\[supp doc\]](https://calciferzh.github.io/files/zhou2020monocular_supp.pdf) [\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
+[\[video\]](https://youtu.be/OIRulRoBdL4)
+[\[paper\]](https://calciferzh.github.io/files/zhou2020monocular.pdf)
+[\[supp doc\]](https://calciferzh.github.io/files/zhou2020monocular_supp.pdf)
+[\[webpage\]](https://calciferzh.github.io/publications/zhou2020monocular)
 
 The release of training code is still in progress.
 
@@ -49,19 +48,6 @@ We found that the model may fail on some "simple" poses. We think this is becaus
 ### Use the models in your project
 Please check `wrappers.py`.
 
-## Citation
-
-If you find the project helpful, please consider citing us:
-```
-@inproceedings{zhou2020monocular,
-  title={Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data},
-  author={Zhou, Yuxiao and Habermann, Marc and Xu, Weipeng and Habibie, Ikhsanul and Theobalt, Christian and Xu, Feng},
-  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
-  pages={0--0},
-  year={2020}
-}
-```
-
 ## IKNet Alternative
 We also provide an optimization-based IK solver [here](https://github.com/CalciferZh/Minimal-IK).
 
@@ -73,4 +59,19 @@ The detection model is trained with following datasets:
 
 The IK model is trained with the poses shipped with [MANO](https://mano.is.tue.mpg.de/).
 
-Please check our paper about the datasets and training for more details.
+## Citation
+
+This is the official implementation of the paper "Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data" (CVPR 2020).
+
+The quantitative numbers reported in the paper can be found in `plot.py`.
+
+If you find the project helpful, please consider citing us:
+```
+@inproceedings{zhou2020monocular,
+  title={Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data},
+  author={Zhou, Yuxiao and Habermann, Marc and Xu, Weipeng and Habibie, Ikhsanul and Theobalt, Christian and Xu, Feng},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={0--0},
+  year={2020}
+}
+```

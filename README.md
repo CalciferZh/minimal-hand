@@ -44,6 +44,8 @@ Please check `requirements.txt`. All dependencies are available via pip and cond
 1. Press `ESC` to quit.
 1. Although the model is robust to variant scales, most ideally the image should be 1.3x larger than the hand boudning box. A good bounding box may result in better accuracy. You can track the bounding box with the 2D predictions of the model.
 
+We found that the model may fail on some "simple" poses. We think this is because such poses were no presented in the training data. We are working on a v2 version with further extended data to tackle this problem.
+
 ### Use the models in your project
 Please check `wrappers.py`.
 

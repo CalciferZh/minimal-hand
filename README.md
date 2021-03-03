@@ -24,6 +24,10 @@ The author is too busy to collect the training code for release.
 On the other hand, it should not be difficult to implement the training part.
 Feel free to open an issue for any encountered problems.
 
+[Here](https://github.com/MengHao666/Minimal-Hand-pytorch) is a pytorch version implemented by @MengHao666.
+I didn't personally check it but I believe it worth trying.
+Many thanks to @MengHao666!
+
 ## Usage
 
 ### Install dependencies

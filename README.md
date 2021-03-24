@@ -24,9 +24,15 @@ The author is too busy to collect the training code for release.
 On the other hand, it should not be difficult to implement the training part.
 Feel free to open an issue for any encountered problems.
 
+### Pytorch Version
 [Here](https://github.com/MengHao666/Minimal-Hand-pytorch) is a pytorch version implemented by @MengHao666.
 I didn't personally check it but I believe it worth trying.
-Many thanks to @MengHao666!
+Many thanks to @MengHao666 !
+
+### With Unity
+[Here](https://github.com/vinnik-dmitry07/minimal-hand) is a project that connects this repo to unity.
+It looks very cool and many thanks to @vinnik-dmitry07 !
+
 
 ## Usage
 

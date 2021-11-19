@@ -45,7 +45,7 @@ Please check `requirements.txt`. All dependencies are available via pip and cond
 1. Run `python prepare_mano.py`, you will get the converted MANO model that is compatible with this project at `config.HAND_MESH_MODEL_PATH`.
 
 ### Prepare pre-trained network models
-1. Download models from [here](https://drive.google.com/open?id=1ZnDYF9rHKbef27tiHkWrLznqe18le7ol).
+1. Download models from [here](https://github.com/CalciferZh/minimal-hand/releases/download/v1/cvpr_2020_hand_model_v1.zip).
 1. Put `detnet.ckpt.*` in `model/detnet`, and `iknet.ckpt.*` in `model/iknet`.
 1. Check `config.py`, make sure all required files are there.
 

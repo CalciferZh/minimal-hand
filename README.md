@@ -79,11 +79,11 @@ The quantitative numbers reported in the paper can be found in `plot.py`.
 
 If you find the project helpful, please consider citing us:
 ```
-@inproceedings{zhou2020monocular,
-  title={Monocular Real-time Hand Shape and Motion Capture using Multi-modal Data},
-  author={Zhou, Yuxiao and Habermann, Marc and Xu, Weipeng and Habibie, Ikhsanul and Theobalt, Christian and Xu, Feng},
-  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
-  pages={0--0},
-  year={2020}
+@InProceedings{zhou2020monocular,
+  author = {Zhou, Yuxiao and Habermann, Marc and Xu, Weipeng and Habibie, Ikhsanul and Theobalt, Christian and Xu, Feng},
+  title = {Monocular Real-Time Hand Shape and Motion Capture Using Multi-Modal Data},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2020}
 }
 ```
